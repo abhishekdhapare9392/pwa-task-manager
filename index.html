@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager PWA</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="manifest" href="manifest.json">
+    <!-- Include XLSX library for exporting to Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+</head>
+
+<body class="bg-gray-100 p-5 text-center">
+    <img src="logo.png" alt="Task Manager PWA Logo" class="mx-auto mb-5 w-40">
+    <h1 class="text-3xl font-bold mb-5">Task Manager</h1>
+    <form id="task-form" class="mb-5 flex justify-center">
+        <input type="text" id="task-input" placeholder="Add a new task"
+            class="border border-gray-300 p-2 rounded mr-2 w-1/2" required>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Task</button>
+    </form>
+    <ul id="task-list" class="space-y-4"></ul>
+    <div id="export-buttons" class="mt-5 flex justify-center gap-3">
+        <button onclick="exportToCSV()" class="bg-green-500 text-white px-4 py-2 rounded">Export to CSV</button>
+        <button onclick="exportToExcel()" class="bg-yellow-500 text-white px-4 py-2 rounded">Export to Excel</button>
+        <button onclick="exportToText()" class="bg-gray-500 text-white px-4 py-2 rounded">Export to Text</button>
+    </div>
+    <script src="app.js"></script>
+    <script src="service-worker.js"></script>
+</body>
+
+</html>
